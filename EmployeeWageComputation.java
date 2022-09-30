@@ -7,6 +7,7 @@ public class EmployeeWageComputation {
 	public int Presenti, Presenti2;
 	public int WagePerHour, FullDayHours, HalfDayHours, Hours;
 	public int PartTimeWagePerHour;
+	public int AddEmployee2;
 
 	// Start with displaying welcome message
 	public void printMessage() {
@@ -70,6 +71,34 @@ public class EmployeeWageComputation {
 
 	}
 
+	// Solve Using Switch Case
+	public void solveUsingSwitchCase() {
+		Random num3 = new Random();
+		AddEmployee2 = num3.nextInt(7);
+		switch (AddEmployee2) {
+		case 0:
+			System.out.println("PartTime Employee2 is Absent");
+			break;
+		case 1:
+			System.out.println("FullTime Employee2 is Absent");
+			break;
+		case 2:
+			System.out.println("Today PartTime Employee2 is Present and work Full Day");
+			break;
+		case 3:
+			System.out.println("Today PartTime Employee2 is Present and work Half Day");
+			break;
+		case 4:
+			System.out.println("Today FullTime Employee2 is Present and work Full Day");
+			break;
+		case 5:
+			System.out.println("Today FullTime Employee2 is Present and work Half Day");
+			break;
+		default:
+			System.out.println(" ");
+		}
+	}
+
 	public static void main(String[] args) {
 
 		EmployeeWageComputation call = new EmployeeWageComputation();
@@ -81,5 +110,7 @@ public class EmployeeWageComputation {
 		call.calculateEmployeeDailyWage();
 
 		call.AddPartTimeEmployee();
+
+		call.solveUsingSwitchCase();
 	}
 }

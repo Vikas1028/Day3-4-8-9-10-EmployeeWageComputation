@@ -2,7 +2,55 @@ package EmployeeWageComputation;
 
 import java.util.Random;
 
-public class EmployeeWageComputation {
+class EmployeeMonthlyWage {
+
+	int Month, WageForMonth = 0, WagePerHour = 20, FullDayHours = 8, HalfDayHours = 4, FullDays = 0, HalfDays = 0;
+	int WagePerHour2 = 10, WageForMonth2 = 0;
+
+	public void FullTimeEmployeeMonthlyWage() {
+		for (int i = 1; i <= 20; i++) {
+			Random num4 = new Random();
+			Month = num4.nextInt(2);
+			switch (Month) {
+			case 0:
+				WageForMonth = WageForMonth + WagePerHour * FullDayHours;
+				FullDays = FullDays + 1;
+				break;
+			case 1:
+				WageForMonth = WageForMonth + WagePerHour * HalfDayHours;
+				HalfDays = HalfDays + 1;
+				break;
+			}
+		}
+		System.out.println(
+				"This Month Full Time Employee work FullDay " + FullDays + " Days and HalfDay " + HalfDays + " Days.");
+		System.out.println("This Month Full Time Employee Wage is " + WageForMonth + " Rs.");
+	}
+
+	public void HalfTimeEmployeeMonthlyWage() {
+		FullDays = 0;
+		HalfDays = 0;
+		for (int i = 1; i <= 20; i++) {
+			Random num4 = new Random();
+			Month = num4.nextInt(2);
+			switch (Month) {
+			case 0:
+				WageForMonth2 = WageForMonth2 + WagePerHour2 * FullDayHours;
+				FullDays = FullDays + 1;
+				break;
+			case 1:
+				WageForMonth2 = WageForMonth2 + WagePerHour2 * HalfDayHours;
+				HalfDays = HalfDays + 1;
+				break;
+			}
+		}
+		System.out.println("This Month Part Time Employee work FullTime " + FullDays + " Days and HalfTime " + HalfDays
+				+ " Days.");
+		System.out.println("This Month Part Time Employee Wage is " + WageForMonth2 + " Rs.");
+	}
+}
+
+public class EmployeeWageComputation extends EmployeeMonthlyWage {
 
 	public int Presenti, Presenti2;
 	public int WagePerHour, FullDayHours, HalfDayHours, Hours;
@@ -116,26 +164,26 @@ public class EmployeeWageComputation {
 	}
 
 	// Calculate PartTime Employee Wage for Month
-	public void WageForMonth2() {
-		partTimeWagePerHour = 10;
-		for (int i = 0; i <= 20; i++) {
-			Random num4 = new Random();
-			Month2 = num4.nextInt(2);
-			switch (Month2) {
-			case 0:
-				WageForMonth2 = WageForMonth2 + partTimeWagePerHour * partTimeWagePerHour * FullDayHours;
-				FullDay2 = FullDay2 + 1;
-				break;
-			case 1:
-				WageForMonth2 = WageForMonth2 + partTimeWagePerHour * HalfDayHours;
-				HalfDay2 = HalfDay2 + 1;
-				break;
-			}
-		}
-		System.out
-				.println("This Month Employee work FullTime " + FullDay2 + " Days and HalfTime " + HalfDay2 + " Days.");
-		System.out.println("This Month Part Time Employee Wage is " + WageForMonth2 + " Rs.");
-	}
+//	public void WageForMonth2() {
+//		partTimeWagePerHour = 10;
+//		for (int i = 0; i <= 20; i++) {
+//			Random num4 = new Random();
+//			Month2 = num4.nextInt(2);
+//			switch (Month2) {
+//			case 0:
+//				WageForMonth2 = WageForMonth2 + partTimeWagePerHour * partTimeWagePerHour * FullDayHours;
+//				FullDay2 = FullDay2 + 1;
+//				break;
+//			case 1:
+//				WageForMonth2 = WageForMonth2 + partTimeWagePerHour * HalfDayHours;
+//				HalfDay2 = HalfDay2 + 1;
+//				break;
+//			}
+//		}
+//		System.out
+//				.println("This Month Employee work FullTime " + FullDay2 + " Days and HalfTime " + HalfDay2 + " Days.");
+//		System.out.println("This Month Part Time Employee Wage is " + WageForMonth2 + " Rs.");
+//	}
 
 	// Calculate FullTime Employee2 Wage for Month till condition match 100 hours or
 	// 20 days.
@@ -196,16 +244,20 @@ public class EmployeeWageComputation {
 
 		call.calculateEmployeeDailyWage();
 
-		call.WageForMonth();
+		// call.WageForMonth();
 
 		call.WageForMonthWithCondition();
 
 		call.AddPartTimeEmployee();
 
-		call.WageForMonth2();
-		
+		// call.WageForMonth2();
+
 		call.WageForMonthWithCondition2();
 
 		call.solveUsingSwitchCase();
+
+		call.FullTimeEmployeeMonthlyWage();
+
+		call.HalfTimeEmployeeMonthlyWage();
 	}
 }
